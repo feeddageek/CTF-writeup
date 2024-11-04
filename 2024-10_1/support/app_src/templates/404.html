@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1 hidden>{% block title %} Error {% endblock %}</h1>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/error.css')}}"
+/>
+<div id="error">
+  <div id="container">
+    <h1>Page not found</h1>
+  </div>
+</div>
+{% endblock %}

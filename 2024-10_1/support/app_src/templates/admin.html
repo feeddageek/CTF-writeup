@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<h1 hidden>{% block title %} Administration console {% endblock %}</h1>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/superadmin.css')}}"
+/>
+<div id="admin">
+  <form action="/superadmin.html" method="post">
+    <span class="error">{{error}}</span>
+    <span class="success">{{result}}</span>
+    <label for="url">Destination URL</label>
+    <input
+      type="text"
+      name="url"
+      id="url"
+      placeholder="http://127.0.0.1:4000/health"
+      value="http://127.0.0.1:4000/health"
+    />
+    <button type="submit" class="custom">Check</button>
+  </form>
+</div>
+{% endblock %}

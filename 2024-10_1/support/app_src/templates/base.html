@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %} {% endblock %} - Support Sphere</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css">
+    <style data-tag="reset-style-sheet">
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type="button"]:-moz-focus,
+      [type="reset"]:-moz-focus,
+      [type="submit"]:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background-color: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+  </head>
+  <body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css')}}"
+    />
+    <header>
+      <div id="navbar">
+        <div class="logo">
+          <img
+            src="{{ url_for('static',filename='img/logo.png')}}"
+            alt="Company logo"
+          />
+        </div>
+        <div class="navbar-menu">
+          <nav class="links">
+            <a href="/index.html">#</a>
+            <a href="#">#services</a>
+            <a href="#">#about</a>
+          </nav>
+          <div class="buttons">
+            {% if username %}
+              {% if isAdmin %}
+              <button class="navbar-action-main custom" onclick="location.href = '/superadmin.html'">Admin console</button>
+              {% endif %}
+            <button class="navbar-action-secondary custom" onclick="location.href = '/logout.html'">Logout</button>
+            {% else %}
+            <button class="navbar-action-main custom" onclick="location.href = '#'">Register</button>
+            <button class="navbar-action-secondary custom" onclick="location.href = '/login.html'">Login</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="content">
+      {% block content %} {% endblock %}
+    </div>
+    <footer>
+      <div class="content">
+        <div class="logo">
+          <img
+            src="{{ url_for('static',filename='img/logo.png')}}"
+            alt="Company logo"
+          />
+        </div>
+        <div class="links">
+          <nav class="links">
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+          </nav>
+        </div>
+      </div>
+      <div class="credits">
+        <div class="divider"></div>
+        <span class=>© 2024 SupportSphere</span>
+      </div>
+    </footer>
+  </body>
+</html>

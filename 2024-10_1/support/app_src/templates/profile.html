@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+<h1 hidden>{% block title %} User Profile {% endblock %}</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user.css')}}" />
+<div id="user">
+  <div id="container">
+    <h1>User Profile</h1>
+    <div class="row">
+      <span class="label"> Username: </span>
+      <ul>
+        <li>{{username}}</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="label"> Roles: </span>
+      <ul>
+        {% for role in roles %}
+        <li>{{role}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
